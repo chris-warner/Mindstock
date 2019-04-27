@@ -8462,7 +8462,7 @@ div.copied {
         padding-right: 0; } }
     .navbar .navbar-right .navbar-nav li > .dropdown-menu {
       position: absolute;
-      right: 15px;
+      right: 10px;
       border-color: #e5e9f2; }
     @media (min-width: 992px) {
       .navbar .navbar-right .navbar-nav .user-menu {
