@@ -1,37 +1,41 @@
-// Dependencies
+// ==============================================================================
+// DEPENDENCIES
+// Series of npm packages that we will use to give our server useful functionality
+// ==============================================================================
+
 var express = require("express");
-var exphbs = require("express-handlebars");
-// Create an instance of the express app.
+
+// ==============================================================================
+// EXPRESS CONFIGURATION
+// This sets up the basic properties for our express server
+// ==============================================================================
+
+// Tells node that we are creating an "express" server
 var app = express();
 
-// Set the port of our application
-// process.env.PORT lets the port be set by Heroku
+// Sets an initial port. We"ll use this later in our listener
 var PORT = process.env.PORT || 8080;
 
-// Set Handlebars as the default templating engine.
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
-app.set( "view engine","handlebars" );
-
-// Routes
-app.get( "/news",function ( req,res )
-{
-  res.render( "news",{ footerContent: '<script src="js/jquery-3.2.1.min.js"></script> <script src="js/owl.carousel.min.js"> </script>	<script src="js/main.js"></script>' })
-});
-
-app.get("/weekend", function(req, res) {
-  res.render("index", lunches[1]);
-});
+// Sets up the Express app to handle data parsing
+app.use(express.urlencoded({ extended: true, limit: '4mb' }));
+app.use(express.json({limit: '4mb'}));
+app.use(express.static("public"));
 
 
-app.get( '/',function ( req,res )
-{    
-  res.render("index",{body:"<center><button>HandlebarsTest</button></center>"});
-});
-  
-// Start our server so that it can begin listening to client requests.
+// ================================================================================
+// ROUTER
+// The below points our server to a series of "route" files.
+// These routes give our server a "map" of how to respond when users visit or request data from various URLs.
+// ================================================================================
+
+require("./app/routing/apiRoutes")(app);
+require("./app/routing/htmlRoutes")(app);
+
+// =============================================================================
+// LISTENER
+// The below code effectively "starts" our server
+// =============================================================================
+
 app.listen(PORT, function() {
-  // Log (server-side) when our server has started
-  console.log("Server listening on: http://localhost:" + PORT);
+  console.log("App listening on PORT: http://localhost:" + PORT);
 });
-
-
