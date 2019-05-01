@@ -50,7 +50,7 @@ app.get( '/test',function ( req,res )
 
 app.get( '/',function ( req,res )
 {    
-  res.render("index");
+  res.render("index",{body:"<center><button>HandlebarsTest</button></center>"});
 });
   
 // Start our server so that it can begin listening to client requests.
