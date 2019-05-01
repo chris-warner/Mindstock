@@ -1,7 +1,6 @@
 // Dependencies
 var express = require("express");
 var exphbs = require("express-handlebars");
-var $ = require( "cheerio" );
 // Create an instance of the express app.
 var app = express();
 
@@ -13,18 +12,6 @@ var PORT = process.env.PORT || 8080;
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set( "view engine","handlebars" );
 
-
-
-
-
-var lunches = [
-  {
-    lunch: "Beet & Goat Cheese Salad with minestrone soup."
-  }, {
-    lunch: "Pizza, two double veggie burgers, fries with a Big Gulp"
-  }
-];
-
 // Routes
 app.get( "/news",function ( req,res )
 {
@@ -35,18 +22,6 @@ app.get("/weekend", function(req, res) {
   res.render("index", lunches[1]);
 });
 
-app.get("/lunches", function(req, res) {
-  res.render("all-lunches", {
-    foods: lunches,
-    eater: "david"
-  });
-});
-// app.engine('news', require('jade')._express);
-
-app.get( '/test',function ( req,res )
-{
-  
-} );
 
 app.get( '/',function ( req,res )
 {    
