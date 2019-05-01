@@ -1,12 +1,9 @@
 {
-  "name": "Project-2",
+  "name": "project-2",
   "version": "1.0.0",
   "description": "project2",
   "main": "server.js",
-  "dependencies": {
-    "express": "^4.16.4",
-    "express-handlebars": "^3.0.2"
-  },
+  "dependencies": {},
   "devDependencies": {
     "express": "^4.16.4",
     "express-handlebars": "^3.0.2"
