@@ -15,5 +15,18 @@
     "morgan": "~1.9.0",
     "path": "^0.12.7",
     "sequelize": "^5.8.2"
-  }
+  },
+  "main": "server.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chris-warner/Project-2.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chris-warner/Project-2/issues"
+  },
+  "homepage": "https://github.com/chris-warner/Project-2#readme",
+  "description": ""
 }
