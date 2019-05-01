@@ -1,62 +1,42 @@
-const path = require('path');
-const express = require('express');
-const app = express();
-const passport = require('passport');
-const session = require('express-session');
-const bodyParser = require('body-parser');
-const env = require('dotenv').load();
-const exphbs = require('express-handlebars');
+// ==============================================================================
+// DEPENDENCIES
+// Series of npm packages that we will use to give our server useful functionality
+// ==============================================================================
 
-// BodyParser
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+var express = require("express");
 
-// Passport
-app.use(
-  session({ secret: 'rHUyjs6RmVOD06OdOTsVAyUUCxVXaWci', resave: true, saveUninitialized: true })
-); // session secret
-app.use(passport.initialize());
-app.use(passport.session());
+// ==============================================================================
+// EXPRESS CONFIGURATION
+// This sets up the basic properties for our express server
+// ==============================================================================
 
-// Handlebars
-const viewsPath = path.join(__dirname, 'views');
-const layoutsPath = path.join(viewsPath, 'layouts');
-const partialsPath = path.join(viewsPath, 'partials');
-app.set('views', viewsPath);
+// Tells node that we are creating an "express" server
+var app = express();
 
-const exphbsConfig = exphbs.create({
-  defaultLayout: 'main',
-  layoutsDir: layoutsPath,
-  partialsDir: [partialsPath],
-  extname: '.hbs'
+// Sets an initial port. We"ll use this later in our listener
+var PORT = process.env.PORT || 8080;
+
+// Sets up the Express app to handle data parsing
+app.use(express.urlencoded({ extended: true, limit: '4mb' }));
+app.use(express.json({limit: '4mb'}));
+app.use( express.static( "/app/" ) );
+
+
+
+// ================================================================================
+// ROUTER
+// The below points our server to a series of "route" files.
+// These routes give our server a "map" of how to respond when users visit or request data from various URLs.
+// ================================================================================
+
+require("./app/routing/apiRoutes")(app);
+require("./app/routing/htmlRoutes")(app);
+
+// =============================================================================
+// LISTENER
+// The below code effectively "starts" our server
+// =============================================================================
+
+app.listen(PORT, function() {
+  console.log("App listening on PORT: http://localhost:" + PORT);
 });
-
-app.engine('hbs', exphbsConfig.engine);
-app.set('view engine', '.hbs');
-
-// Models
-const models = require('./models');
-
-// Express static assets
-app.use(express.static("public"));
-
-// Routes
-const htmlroutes = require('./routes/htmlroutes.js')(app, passport);
-
-// Load passport strategies
-require('./config/passport/passport.js')(passport, models.user);
-
-// Sync Database
-models.sequelize
-  .sync()
-  .then(function() {
-    console.log('Database Connected');
-
-    app.listen(3000, function(err) {
-      if (!err) console.log('Connected at http://localhost:3000');
-      else console.log(err);
-    });
-  })
-  .catch(function(err) {
-    console.log(err, 'Error on Database Sync. Please try again!');
-  });

@@ -1,0 +1,162 @@
+.container {
+	margin: 5% auto;
+}
+
+html,
+html,body { 
+	overflow-x: hidden; 
+	/* background: #000 url(https://images.unsplash.com/photo-1529156069898-49953e39b3ac?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2378&q=80) fixed center center no-repeat;  */
+	background-size: cover; 
+}
+
+.jumbotron {
+	background: rgba(255, 255, 255, 0.85);
+	border-radius: 10px;
+}
+
+.jumbotron H1 {
+	color: #000;
+}
+
+.jumbotron H2 {
+	color: #676767;
+}
+
+label.input-group {
+	border: 1px solid #CCC;
+	border-radius: 5px;
+	padding-top:
+}
+
+label.input-group * {
+	height: 35px;
+}
+
+.input-group-text {
+	border: none;
+}
+
+.card-header i,
+.card-header span {
+	color: #565655;
+}
+
+span.input-label {
+	float: left;
+	padding: 5px 0 5px 10px;
+}
+
+.button {
+	cursor: not-allowed;
+	padding: 10px 40px;
+	border-radius: 5px;
+	background: #999;
+	color: #CCC;
+	text-decoration: none;
+}
+
+.button:hover {
+	cursor: not-allowed;
+	color: #CCC;
+	text-decoration: none;
+}
+
+.button.ready {
+	font-weight: bold;
+	cursor: pointer;
+	background-color: grey;
+	color: White;
+	border: 2px solid navy;
+}
+
+.button.ready:hover {
+	cursor: pointer;
+	background-color: navy;
+}
+
+input.has-error {
+	border: 1px solid red;
+}
+
+#survey {
+	position: relative;
+}
+
+.aboutMe {
+	transition: all .9s;
+	position: relative;
+}
+
+.surveys {
+	transition: all .9s;
+	position: absolute;
+	top: 0px;
+	margin-left: 1000%;
+	min-width: 300px;
+}
+
+.surveys.show {
+	margin-left: 0px;
+	width: 100%;
+}
+
+.aboutMe.filled,
+.surveys.filled {
+	position: relative;
+	margin-left: -1000% !important;
+	max-width: 400px;
+	float: left;
+}
+
+.status-bar {
+	overflow: hidden;
+	background: #999;
+	float: left;
+	border: 1px solid #999;
+	border-radius: 10px;
+	width: 100%;
+	height: 10px;
+	margin: 0 0 30px 0;
+}
+
+.status-bar .bar {
+	transition: all 1s;
+	background: greenyellow;
+	float: left;
+	height: 10px;
+}
+
+.status-text {
+	margin: 15px auto;
+	border-radius: 50px;
+	display: inline-block;
+	color: #333;
+	font-weight: bold;
+	padding: 5px 30px;
+	background: rgba(255, 255, 255, 0.6);
+}
+
+#status {
+	display: none;
+}
+
+.completeSurvey.ready {
+	margin: -10px auto 0;
+	font-size: 20px;
+}
+
+.matching-results {
+	padding: 50px 40px;
+}
+
+.matching-results * {
+	text-align: center;
+}
+
+.matching-results #match-img {
+	border-radius: 1000px;
+	border: 1px solid #999;
+	margin: 10px auto;
+	width: 30vw;
+	height: 30vw;
+}
