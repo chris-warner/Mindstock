@@ -1,0 +1,29 @@
+{
+  "name": "Project-2",
+  "version": "1.0.0",
+  "description": "project2",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.16.4",
+    "express-handlebars": "^3.0.2"
+  },
+  "devDependencies": {
+    "express": "^4.16.4",
+    "express-handlebars": "^3.0.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chris-warner/Project-2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chris-warner/Project-2/issues"
+  },
+  "homepage": "https://github.com/chris-warner/Project-2#readme"
+}
