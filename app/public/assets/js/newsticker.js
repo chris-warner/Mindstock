@@ -7,13 +7,15 @@ $( document ).ready( function () {
   let newsArray = [];
   // To query /v2/top-headlines
   // All options passed to topHeadlines are optional, but you need to include at least one of them
+
+
   var NewsArticle = function (author1,description1,title1,publishedAt1) {
     this.author = author1,
     this.description = description1,
     this.title = title1,
     this.publishedAt = publishedAt1;
     }
-  
+
     $.get( newsUrl, function ( data ) {
       for ( i in data ) {
         for (var article in data[ i ]) {
@@ -28,4 +30,5 @@ $( document ).ready( function () {
 
 console.log(newsArray);
 });
+
 });
