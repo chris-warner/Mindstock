@@ -1,4 +1,4 @@
-module.exports = (sequelize, Sequelize) => {
+ module.exports = (sequelize, Sequelize) => {
   var User = sequelize.define('user', {
     id: { autoIncrement: true, primaryKey: true, type: Sequelize.INTEGER },
     firstname: { type: Sequelize.STRING, notEmpty: true },

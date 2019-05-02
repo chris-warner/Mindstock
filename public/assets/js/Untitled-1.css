@@ -1,0 +1,25 @@
+/* All elements in newsArticle Title */
+article_Title_div {
+    border: solid, 2px, black;
+    height: 100px;
+    width: 100px;
+}
+
+/* All elements in newsArticle Description */
+article_Description_div {
+    border: solid, 2px, black;
+    height: 100px;
+    width: 100px;
+}
+
+/* All elements in newsArticle publishedAt */
+article_publishedAt_div {
+    border: solid, 2px, black;
+    height: 100px;
+    width: 100px;
+}
+
+.newsticker {
+    font-family: monospace;
+    font-size: 12pt;
+}
