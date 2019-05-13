@@ -1,42 +1,71 @@
-// ==============================================================================
-// DEPENDENCIES
-// Series of npm packages that we will use to give our server useful functionality
-// ==============================================================================
+const express= require ('express');
 
-var express = require("express");
+const port = process.env.PORT || 8080;
+const app = express();
 
-// ==============================================================================
-// EXPRESS CONFIGURATION
-// This sets up the basic properties for our express server
-// ==============================================================================
+const db = require("./models")
 
-// Tells node that we are creating an "express" server
-var app = express();
+let path = require('path')
 
-// Sets an initial port. We"ll use this later in our listener
-var PORT = process.env.PORT || 8080;
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use('/static', express.static('public'));
+app.use('/node_modules', express.urlencoded({extended: true}));
+app.use(express.json());
 
-// Sets up the Express app to handle data parsing
-app.use(express.urlencoded({ extended: true, limit: '4mb' }));
-app.use(express.json({limit: '4mb'}));
-app.use( express.static( "/app/" ) );
+//handlebars
+const exphbs = require ('express-handlebars')
+app.set('views', "public/views/")
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
+
+// Routes
+require("./routes/html-routes.js")(app);
+require("./routes/investors-routes.js")(app);
+require("./routes/investment-routes.js")(app);
+
+
+db.sequelize.sync().then(function() {
+    app.listen(port, function() {
+      console.log(`Running server on port ${port}`);
+    });
+  });
+
+
+// const express= require ('express');
+
+// const port = process.env.PORT || 8080;
+// const app = express();
+
+// // const db = require("./models")
+// const path = require('path')
+
+// app.use(express.urlencoded({ extended: true }));
+// app.use(express.json());
+// // app.use(express.static("public"));
+// app.use('/static', express.static('public'))
+// app.use('/node_modules', express.static(path.join(__dirname,'node_modules')));
+
+// app.use(express.urlencoded({extended: true}));
+// app.use(express.json());
+
+// //handlebars
+// const exphbs = require ('express-handlebars')
+// app.set('views', "public/views/")
+// app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+// app.set("view engine", "handlebars");
+
+// var handlebars = require('handlebars');
+
+// // Routes
+// require("./routes/mutual-fund-routes.js")(app);
+// require("./routes/html-routes.js")(app);
+// require("./routes/user-api-routes.js")(app);
 
 
 
-// ================================================================================
-// ROUTER
-// The below points our server to a series of "route" files.
-// These routes give our server a "map" of how to respond when users visit or request data from various URLs.
-// ================================================================================
-
-require("./app/routing/apiRoutes")(app);
-require("./app/routing/htmlRoutes")(app);
-
-// =============================================================================
-// LISTENER
-// The below code effectively "starts" our server
-// =============================================================================
-
-app.listen(PORT, function() {
-  console.log("App listening on PORT: http://localhost:" + PORT);
-});
+// db.sequelize.sync().then(function() {
+//     app.listen(port, function() {
+//       console.log(`Running server on port ${port}`);
+//     });
+//   });

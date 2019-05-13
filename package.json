@@ -1,30 +1,29 @@
 {
-  "name": "project-2",
+  "name": "project-duex",
   "version": "1.0.0",
-  "description": "project2",
+  "description": "",
   "main": "server.js",
-  "dependencies": {
-    "express": "^4.16.4",
-    "express-handlebars": "^3.0.2",
-    "newsapi": "^2.4.0"
-  },
-  "devDependencies": {
-    "express": "^4.16.4",
-    "express-handlebars": "^3.0.2"
-  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/chris-warner/Project-2.git"
+    "url": "git+https://github.com/dcldev/project-duex.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/chris-warner/Project-2/issues"
+    "url": "https://github.com/dcldev/project-duex/issues"
   },
-  "homepage": "https://github.com/chris-warner/Project-2#readme"
+  "homepage": "https://github.com/dcldev/project-duex#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "express-handlebars": "^3.0.2",
+    "moment": "^2.24.0",
+    "mysql": "^2.17.1",
+    "mysql2": "^1.6.5",
+    "sequelize": "^5.8.2"
+  }
 }
