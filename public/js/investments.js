@@ -1,11 +1,12 @@
 $(document).ready(function () {
 
     function getGrowthType() {
-        
-        $.get("/api/investments/:id", function (data) {
-            console.log(data);
-        });
-  
+ 
+        $.get("/api/investments/", function(data){
+            console.log("what is this", data);
+        })
+ 
+ 
     }
     getGrowthType();
  });
