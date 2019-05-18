@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
-    var Investor = sequelize.define("Investor", {
+    var Investor = sequelize.define('Investor', {
         first_name: {
             type: DataTypes.STRING
         },
@@ -14,11 +14,9 @@ module.exports = function (sequelize, DataTypes) {
         }
     });
 
-    Investor.associate = function (models) {
-        
-        Investor.hasMany(models.Investments);
+  Investor.associate = function (models) {
+    Investor.hasMany(models.Investments)
+  }
 
-    }
-
-    return Investor;
+  return Investor
 }

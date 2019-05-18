@@ -1,5 +1,7 @@
+<h1 class = 'results'> Survey Results </h1>
 
-{{#each product}}
+<h1 class= 'userName'> Your Name</h1>
+<p class= 'investorType'> Investor Type</p>
 
 <h1>Based on your survey results, here are the investment products we recommend:</h1>
 
@@ -8,4 +10,8 @@
 <h2>Growth Rate: {{this.growth_rate}}</h2>
 <h2>Fund Description: {{this.description}} </h2>
 
-{{/each}}
+
+{{{product}}}
+
+
+<script src= "static/js/results.js"></script>
